@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<SplitPane dividerPositions="0.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@viewer.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.131" fx:controller="logbook.plugin.apiviewer.gui.ViewerController">
+   <items>
+      <VBox>
+         <children>
+            <ToolBar>
+              <items>
+                <Button mnemonicParsing="false" onAction="#clear" text="クリア" />
+              </items>
+            </ToolBar>
+            <ListView fx:id="list" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="概要">
+               <content>
+                  <VBox>
+                     <children>
+                        <TextFlow>
+                           <children>
+                              <Label text="日時:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date" />
+                           </children>
+                        </TextFlow>
+                        <TextFlow>
+                           <children>
+                              <Label text="要求URI:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="uri" />
+                           </children>
+                        </TextFlow>
+                        <TextFlow>
+                           <children>
+                              <Label text="リスナー:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="listener" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+          <Tab text="応答">
+               <content>
+                  <VBox>
+                     <children>
+                        <ToolBar>
+                          <items>
+                              <Button mnemonicParsing="false" onAction="#setRawResponse" text="RAW" />
+                              <Button mnemonicParsing="false" onAction="#setPrettyResponse" text="整形" />
+                            <Button mnemonicParsing="false" onAction="#openFirebug" text="Firebugで開く" />
+                          </items>
+                        </ToolBar>
+                        <TextArea fx:id="response" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="要求">
+               <content>
+                  <VBox>
+                     <children>
+                        <ToolBar>
+                          <items>
+                            <Button mnemonicParsing="false" onAction="#setRawRequest" text="RAW" />
+                              <Button mnemonicParsing="false" onAction="#setPrettyRequest" text="構造" />
+                          </items>
+                        </ToolBar>
+                        <TextArea fx:id="request" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </items>
+</SplitPane>

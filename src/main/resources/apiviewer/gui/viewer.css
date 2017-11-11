@@ -1,0 +1,9 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.root {
+    -fx-font-family: "Meiryo UI";
+    -fx-font-weight: normal;
+}
+.increment-button ,.decrement-button {
+    -fx-padding: 6px;
+}
